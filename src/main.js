@@ -13,8 +13,6 @@ const calculateBtn = document.getElementById("calculateBtn");
 const reset = document.getElementById("resetBtn");
 const toggleBg = document.getElementById("toggleBg");
 
-
-
 function firstToggler() {
   firstToggle.style.display = "none";
   secondToggle.style.display = "block";
@@ -25,7 +23,7 @@ function firstToggler() {
   keysBg.style.color = " hsl(225, 21%, 49%)";
   keysBg.style.boxShadow = "hsl(224, 28%, 35%)";
   nonOperatorBtn.style.color = "hsl(221,14%,31%)";
-  
+
   nonOperatorBtn.style.boxShadow = "hsl(28,16%,65%)";
   deleteBtnnn.style.backgroundColor = "hsl(224,28%,35%)";
   operatorBtn.style.backgroundColor = "hsl(30,25%,89%)";
@@ -61,9 +59,9 @@ function secondToggler() {
 }
 
 function thirdToggler() {
-  firstToggle.style.display = "none";
+  firstToggle.style.display = "block";
   secondToggle.style.display = "none";
-  thirdToggle.style.display = "block";
+  thirdToggle.style.display = "none";
   // thirdToggle.style.marginLeft = "20px";
   body.style.backgroundColor = "hsl(268, 75%, 9%)";
   headerDiv.style.color = "hsl(52, 100%, 62%)";
@@ -72,8 +70,8 @@ function thirdToggler() {
   keysBg.style.backgroundColor = " hsl(268, 71%, 12%)";
   keysBg.style.color = "black";
   nonOperatorBtn.style.color = "hsl(52, 100%, 62%)";
-  nonOperatorBtn.style.backgroundColor = " hsl(268, 47%, 21%)";
-  nonOperatorBtn.style.boxShadow = "0 2px 0 hsl(285, 91%, 52%)";
+  // nonOperatorBtn.style.backgroundColor = " hsl(268, 47%, 21%)";
+  // nonOperatorBtn.style.boxShadow = "0 2px 0 hsl(285, 91%, 52%)";
 
   toggleBg.style.backgroundColor = " hsl(28, 16%, 65%)";
   reset.style.backgroundColor = "hsl(185, 42%, 37%)";
@@ -84,10 +82,6 @@ function thirdToggler() {
   deleteBtnnn.style.boxShadow = "hsl(185, 58%, 25%)";
   calculateBtn.style.boxShadow = "hsl(25, 99%, 27%)";
 }
-
-
-
-
 
 function appendToDisplay(input) {
   display.value += input;
@@ -108,6 +102,3 @@ function calculate() {
 function deleteBtn() {
   display.value = display.value.slice(0, -1);
 }
-
-
-
