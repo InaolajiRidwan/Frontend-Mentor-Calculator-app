@@ -14,9 +14,9 @@ const reset = document.getElementById("resetBtn");
 const toggleBg = document.getElementById("toggleBg");
 
 function firstToggler() {
-  // firstToggle.style.display = "none";
-  // secondToggle.style.display = "block";
-  // thirdToggle.style.display = "none";
+  firstToggle.style.display = "none";
+  secondToggle.style.display = "block";
+  thirdToggle.style.display = "none";
   secondToggle.style.marginLeft = "10px";
   body.style.backgroundColor = "hsl(222,26%,31%)";
   keysBg.style.backgroundColor = "hsl(224, 36%, 15%)";
@@ -38,9 +38,9 @@ function firstToggler() {
 }
 
 function secondToggler() {
-  // firstToggle.style.display = "none";
-  // secondToggle.style.display = "none";
-  // thirdToggle.style.display = "block";
+  firstToggle.style.display = "none";
+  secondToggle.style.display = "none";
+  thirdToggle.style.display = "block";
   thirdToggle.style.marginLeft = "20px";
   body.style.backgroundColor = "hsl(0, 0%, 90%)";
   headerDiv.style.color = "black";
@@ -59,9 +59,9 @@ function secondToggler() {
 }
 
 function thirdToggler() {
-  // firstToggle.style.display = "block";
-  // secondToggle.style.display = "none";
-  // thirdToggle.style.display = "none";
+  firstToggle.style.display = "block";
+  secondToggle.style.display = "none";
+  thirdToggle.style.display = "none";
   // thirdToggle.style.marginLeft = "20px";
   body.style.backgroundColor = "hsl(268, 75%, 9%)";
   headerDiv.style.color = "hsl(52, 100%, 62%)";
