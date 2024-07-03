@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Calculator app</title>
+    <link rel="stylesheet" href="output.css" />
+
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body id="body" class="bg-[hsl(225,25%,31%)] font-leagueSpartan">
+    <main>
+      <div id="headerDiv" class="flex justify-around text-white pb-5">
+        <div class="-ml-12">
+          <h2 class="font-bold text-2xl">calc</h2>
+        </div>
+        <div class="flex -me-16">
+          <div class="mt-8 pe-4">THEME</div>
+          <div>
+            <div class="flex gap-5 ms-2">
+              <h5>1</h5>
+              <h5>2</h5>
+              <h5>3</h5>
+            </div>
+            <div
+              id="toggleBg"
+              class="flex gap-2 ps-2 bg-black h-8 items-center rounded-lg w-20 absolute"
+            >
+              <div>
+                <img
+                  id="firstToggle"
+                  onclick="firstToggler()"
+                  class="h-4 relative "
+                  src="../images/circle-solid.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  id="secondToggle"
+                  onclick="secondToggler()"
+                  class="h-4 relative  hidden"
+                  src="../images/circle-solid.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  id="thirdToggle"
+                  onclick="thirdToggler()"
+                  class="h-4 relative ms-1 hidden"
+                  src="../images/circled-solid.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-col-1 pb-10">
+        <input
+          placeholder="0"
+          class="h-16 grid col-start-1 col-end-12 rounded-md bg-[hsl(224,36%,15%)] text-white text-end pe-2 text-xl"
+          id="display"
+          readonly
+        />
+      </div>
+
+      <div
+        id="keys"
+        class="grid grid-cols-4 gap-4 bg-[hsl(224,36%,15%)] rounded-lg p-7"
+      >
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('7')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          7
+        </button>
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('8')"
+          class="bg-[hsl(30,25%,89%)] text-2xl text-[hsl(221,14%,31%)] shadow-[hsl(28,16%,65%)] rounded-md font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          8
+        </button>
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('9')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          9
+        </button>
+        <button
+          id="deleteBtn"
+          onClick="deleteBtn()"
+          class="text-white rounded-md bg-[hsl(224,28%,35%)] active:bg-[hsl(225,21%,49%)]"
+        >
+          DEL
+        </button>
+
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('4')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          4
+        </button>
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('5')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          5
+        </button>
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('6')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          6
+        </button>
+        <button
+          id="opeator-btn"
+          onclick="appendToDisplay('+')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          +
+        </button>
+
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('1')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          1
+        </button>
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('2')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          2
+        </button>
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('3')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          3
+        </button>
+        <button
+          id="opeator-btn"
+          onclick="appendToDisplay('-')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          -
+        </button>
+
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('.')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          .
+        </button>
+        <button
+          id="BtnOperator"
+          onclick="appendToDisplay('0')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          0
+        </button>
+        <button
+          id="opeator-btn"
+          onclick="appendToDisplay('/')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          /
+        </button>
+        <button
+          id="opeator-btn"
+          onclick="appendToDisplay('*')"
+          class="bg-[hsl(30,25%,89%)] rounded-md text-[hsl(221,14%,31%)] text-2xl shadow-[hsl(28,16%,65%)] font-bold text-center active:bg-white justify-center items-center w-12 h-10"
+        >
+          x
+        </button>
+
+        <button
+          id="resetBtn"
+          onclick="clearDisplay()"
+          class="bg-[hsl(224,28%,35%)] rounded-md text-white active:bg-[hsl(225,21%,49%)] col-start-1 col-end-3 h-10"
+        >
+          Reset
+        </button>
+        <button
+          id="calculateBtn"
+          onclick="calculate()"
+          class="bg-[hsl(6,63%,50%)] rounded-md shadow-[hsl(6,70%,34%)] active:bg-[hsl(6,70%,34%)] text-white col-start-3 col-end-5 h-10"
+        >
+          =
+        </button>
+      </div>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
